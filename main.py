@@ -12,6 +12,7 @@ def read_root():
 def get_item(request: Request):
 
     # 读取环境变量
+    mastodon_domain = os.getenv("MASTODON_DOMAIN", "mastodon.social")
     mastodon_token = os.getenv("MASTODON_TOKEN")
     mastodon_account = os.getenv("MASTODON_ACCOUNT")
     akismet_token = os.getenv("AKISMET_TOKEN")
@@ -32,7 +33,7 @@ def get_item(request: Request):
         )
 
     # 发送请求 根据toot_id获取评论列表
-    comment_result = get_mastodon_comments(mastodon_token, mastodon_account, toot_id)
+    comment_result = get_mastodon_comments(mastodon_domain, mastodon_token, mastodon_account, toot_id)
 
     # 合规判定
     if akismet_token and akismet_blog_url:
@@ -54,10 +55,10 @@ def get_item(request: Request):
     return comment_result
 
 
-def get_mastodon_comments(mastodon_token, mastodon_account, toot_id):
+def get_mastodon_comments(mastodon_domain, mastodon_token, mastodon_account, toot_id):
 
     return requests.get(
-        url=f"https://mastodon.social/api/v1/statuses/{toot_id}/context",
+        url=f"https://{mastodon_domain}/api/v1/statuses/{toot_id}/context",
         params={
             "acct": mastodon_account
         },
