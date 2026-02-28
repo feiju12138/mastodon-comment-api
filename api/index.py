@@ -12,10 +12,10 @@ class handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         # 读取环境变量
-        mastodon_token = os.environ.get("MASTODON_TOKEN")
-        mastodon_account = os.environ.get("MASTODON_ACCOUNT")
-        akismet_token = os.environ.get("AKISMET_TOKEN")
-        akismet_blog_url = os.environ.get("AKISMET_BLOG_URL")
+        mastodon_token = os.getenv("MASTODON_TOKEN")
+        mastodon_account = os.getenv("MASTODON_ACCOUNT")
+        akismet_token = os.getenv("AKISMET_TOKEN")
+        akismet_blog_url = os.getenv("AKISMET_BLOG_URL")
         if not mastodon_token or not mastodon_account:
             self.send_response(500)
             self.send_header("Content-type","text/plain")
