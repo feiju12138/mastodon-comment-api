@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "api/*.py": {
+      "runtime": "python3.11"
+    }
+  },
+  "routes": [
+    {
+      "src": "^/$",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "body": "ok"
+    },
+    {
+      "src": "^/comment$",
+      "dest": "/api/comment.py"
+    }
+  ]
+}
