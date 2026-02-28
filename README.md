@@ -9,6 +9,8 @@
 
 ## Vercel Environment Variables
 
+> `MASTODON_DOMAIN`：形如`mastodon.social`的Mastodon实例域名，缺省值为`mastodon.social`
+>
 > `MASTODON_TOKEN`：Mastodon实例获取的令牌
 >
 > `MASTODON_ACCOUNT`：形如`feiju@mastodon.social`的用户名
