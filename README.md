@@ -5,9 +5,9 @@
 >
 > `MASTODON_ACCOUNT`：形如`feiju@mastodon.social`的用户名
 >
-> `AKISMET_TOKEN`：[Akismet]（https://akismet.com/）获取的令牌，用于删除垃圾评论，可选
+> `AKISMET_TOKEN`：[Akismet](https://akismet.com/)获取的令牌，用于删除垃圾评论，可选
 >
-> `AKISMET_BLOG_URL`：[Akismet]（https://akismet.com/）API发送请求时携带的`blog`参数（[API文档](https://akismet.com/developers/detailed-docs/comment-check/)），可选（如果`AKISMET_TOKEN`没有传递，则`AKISMET_BLOG_URL`无需传递，反之必须传递）
+> `AKISMET_BLOG_URL`：[Akismet](https://akismet.com/)API发送请求时携带的`blog`参数（[API文档](https://akismet.com/developers/detailed-docs/comment-check/)），可选（如果`AKISMET_TOKEN`没有传递，则`AKISMET_BLOG_URL`无需传递，反之必须传递）
 
 ## Request
 
