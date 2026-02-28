@@ -1,6 +1,3 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "/ok" },
-    { "source": "/api", "destination": "/api" }
-  ]
+  "redirects": [{ "source": "/", "destination": "/api" }]
 }
