@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler
-import urllib.parse, os, json
+import urllib.request, urllib.parse
+import os, json
 
 class handler(BaseHTTPRequestHandler):
 
@@ -38,8 +39,8 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write("param error".encode("utf-8"))
             return
 
-        # 发送请求 根据tootid获取评论列表
-        comment_result = self.get_mastodon_comments(mastodon_token, mastodon_account)
+        # 发送请求 根据toot_id获取评论列表
+        comment_result = self.get_mastodon_comments(mastodon_token, mastodon_account, toot_id)
 
         # 合规判定
         if akismet_token and akismet_blog_url:
@@ -66,8 +67,8 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(comment_result).encode("utf-8"))
         return
 
-    def get_mastodon_comments(self, mastodon_token, mastodon_account):
-        base_url = "https://mastodon.social/api/v1/accounts/lookup"
+    def get_mastodon_comments(self, mastodon_token, mastodon_account, toot_id):
+        base_url = f"https://mastodon.social/api/v1/statuses/{toot_id}/context"
         encoded_params = urllib.parse.urlencode({
             "acct": mastodon_account
         })
@@ -84,7 +85,7 @@ class handler(BaseHTTPRequestHandler):
             method="GET"
         )
 
-        with urllib.request.urlopen(req, context=self._get_ssl_context()) as response:
+        with urllib.request.urlopen(req) as response:
             return json.loads(response.read().decode("utf-8"))
 
     def check_akismet_spam(self, akismet_token, akismet_blog_url, blog_lang, comment_author, comment_content):
@@ -111,5 +112,5 @@ class handler(BaseHTTPRequestHandler):
             method="POST"
         )
 
-        with urllib.request.urlopen(req, context=self._get_ssl_context()) as response:
+        with urllib.request.urlopen(req) as response:
             return response.read().decode("utf-8").strip().lower() == "true"
