@@ -9,7 +9,7 @@
 >
 > `AKISMET_BLOG_URL`：[Akismet](https://akismet.com/)API发送请求时携带的`blog`参数（[API文档](https://akismet.com/developers/detailed-docs/comment-check/)），可选（如果`AKISMET_TOKEN`没有传递，则`AKISMET_BLOG_URL`无需传递，反之必须传递）
 
-## Request
+## Example
 
 > `toot_id`：嘟文编号
 
@@ -17,3 +17,8 @@
 GET https://my-mastodon-comment-api.vercel.app/api
     ?toot_id=
 ```
+
+## Error
+
+- `env error`：Vercel环境变量缺少`MASTODON_TOKEN`或`MASTODON_ACCOUNT`
+- `param error`：请求参数param缺少`toot_id`
