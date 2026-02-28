@@ -27,8 +27,8 @@ class handler(BaseHTTPRequestHandler):
 
         # 获取请求参数
         content_length = int(self.headers.get("Content-Length", 0))
-        post_body = self.rfile.read(content_length)
-        json_params = json.loads(post_body.decode("utf-8"))
+        post_body = self.rfile.read(content_length).decode("utf-8")
+        json_params = json.loads(post_body)
         toot_id = json_params.get("toot_id", "")
         current_url = json_params.get("current_url", "")
         if not toot_id or not current_url:
