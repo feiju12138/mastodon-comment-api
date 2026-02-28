@@ -2,7 +2,9 @@
 # Mastodon + Akismet = Comments
 
 [x]无需科学
+
 [x]垃圾评论过滤
+
 [ ]非`mastodon.social`实例转发
 
 ## Vercel Environment Variables
