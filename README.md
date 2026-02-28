@@ -1,4 +1,6 @@
 
+# Mastodon + Akismet = Comments
+
 ## Vercel Environment Variables
 
 > `MASTODON_TOKEN`：Mastodon实例获取的令牌
