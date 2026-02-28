@@ -25,8 +25,7 @@ def get_item(request: Request):
     # 获取请求参数
     param_str = request.query_params
     toot_id = param_str.get("toot_id")
-    current_url = param_str.get("current_url")
-    if not toot_id or not current_url:
+    if not toot_id:
         raise HTTPException(
             status_code=400,
             detail="param error"
