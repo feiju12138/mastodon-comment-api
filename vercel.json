@@ -7,11 +7,7 @@
   "routes": [
     {
       "src": "^/$",
-      "status": 200,
-      "headers": {
-        "Content-Type": "text/plain"
-      },
-      "body": "ok"
+      "dest": "/api/health.py"
     },
     {
       "src": "^/comment$",
