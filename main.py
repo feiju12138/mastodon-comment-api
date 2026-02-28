@@ -41,9 +41,9 @@ def get_item(request: Request):
         to_delete_indices = []
         for index, descendant in enumerate(comment_result["descendants"]):
             # 提取内容
-            comment_content = descendant.content
-            comment_author = descendant.account.username
-            blog_lang = descendant.language
+            comment_content = descendant["content"]
+            comment_author = descendant["account"]["username"]
+            blog_lang = descendant["language"]
             # 发送请求 假别是否是垃圾评论
             result = check_akismet_spam(akismet_token, akismet_blog_url, blog_lang, comment_author, comment_content)
             if result:
