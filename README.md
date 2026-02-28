@@ -14,8 +14,7 @@
 > `toot_id`：嘟文编号
 
 ```http request
-GET https://my-mastodon-comment-api.vercel.app/api
-    ?toot_id=
+GET https://my-mastodon-comment-api.vercel.app/api?toot_id=116146779087003500
 ```
 
 ## Error
