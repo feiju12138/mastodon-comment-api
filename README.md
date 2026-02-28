@@ -5,7 +5,7 @@
 
 - [x] 垃圾评论过滤
 
-- [x] 允许使用`mastodon.social`实例转发
+- [x] 允许使用`mastodon.social`实例
 
 ## Vercel Environment Variables
 
