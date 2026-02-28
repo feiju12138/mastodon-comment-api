@@ -39,7 +39,7 @@ def get_item(request: Request):
     if akismet_token and akismet_blog_url:
         # 垃圾评论索引
         to_delete_indices = []
-        for index, descendant in enumerate(comment_result.descendants):
+        for index, descendant in enumerate(comment_result["descendants"]):
             # 提取内容
             comment_content = descendant.content
             comment_author = descendant.account.username
@@ -50,7 +50,7 @@ def get_item(request: Request):
                 to_delete_indices.append(index)
         # 删除垃圾评论
         for index in reversed(to_delete_indices):
-            comment_result.descendants = comment_result.descendants[:index] + comment_result.descendants[index + 1:]
+            del comment_result["descendants"][index]
 
     return comment_result
 
