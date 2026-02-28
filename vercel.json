@@ -1,17 +1,6 @@
 {
-  "functions": {
-    "api/*.py": {
-      "runtime": "python@3.11"
-    }
-  },
-  "routes": [
-    {
-      "src": "^/$",
-      "dest": "/api/health.py"
-    },
-    {
-      "src": "^/comment$",
-      "dest": "/api/comment.py"
-    }
+  "redirects": [
+    { "source": "/", "destination": "/ok" },
+    { "source": "/api", "destination": "/api" }
   ]
 }
